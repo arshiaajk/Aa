@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ARSX — Official Website</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --black: #111;
+    --white: #fff;
+    --gray: #777;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--white);
+    color: var(--black);
+    font-family: 'Vazirmatn', sans-serif;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(255,255,255,.85);
+    backdrop-filter: blur(12px);
+}
+
+.date {
+    direction: ltr;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #777;
+}
+
+.username {
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+/* HERO */
+
+.hero {
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
+.logo {
+    font-family: Arial, sans-serif;
+    font-size: clamp(75px, 15vw, 180px);
+    font-weight: 800;
+    letter-spacing: -10px;
+    direction: ltr;
+    position: relative;
+    animation: logoReveal 1.4s ease forwards;
+}
+
+.logo span {
+    color: #999;
+}
+
+.subtitle {
+    font-size: 10px;
+    letter-spacing: 7px;
+    margin-top: 20px;
+    color: #888;
+    direction: ltr;
+}
+
+@keyframes logoReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* SCROLL INDICATOR */
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 3px;
+    direction: ltr;
+}
+
+.scroll-arrow {
+    width: 18px;
+    height: 18px;
+    border-right: 1px solid #111;
+    border-bottom: 1px solid #111;
+    transform: rotate(45deg);
+    animation: arrowMove 1.8s infinite;
+}
+
+@keyframes arrowMove {
+    0%,100% {
+        transform: translateY(-4px) rotate(45deg);
+        opacity: .4;
+    }
+    50% {
+        transform: translateY(5px) rotate(45deg);
+        opacity: 1;
+    }
+}
+
+/* ABOUT */
+
+.about {
+    min-height: 75vh;
+    padding: 130px 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.section-label {
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: #999;
+    direction: ltr;
+    margin-bottom: 30px;
+}
+
+.about h2 {
+    font-size: clamp(30px, 5vw, 55px);
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.about p {
+    max-width: 550px;
+    font-size: 14px;
+    line-height: 2.5;
+    color: #777;
+}
+
+/* TELEGRAM */
+
+.telegram-section {
+    min-height: 65vh;
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: #fafafa;
+    text-align: center;
+}
+
+.telegram-section h2 {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.telegram-section p {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 35px;
+}
+
+.telegram-button {
+    direction: ltr;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 30px;
+    border: 1px solid #111;
+    color: #111;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: .35s;
+}
+
+.telegram-button:hover {
+    background: #111;
+    color: #fff;
+    transform: translateY(-5px);
+}
+
+.telegram-button svg {
+    width: 19px;
+    height: 19px;
+    fill: currentColor;
+}
+
+/* DECORATIVE LINES */
+
+.telegram-lines {
+    position: absolute;
+    width: min(600px, 90%);
+    height: 180px;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    opacity: .12;
+}
+
+.telegram-lines path {
+    fill: none;
+    stroke: #111;
+    stroke-width: 1;
+    stroke-dasharray: 5 8;
+    animation: lineFlow 12s linear infinite;
+}
+
+@keyframes lineFlow {
+    to {
+        stroke-dashoffset: -150;
+    }
+}
+
+/* FOOTER */
+
+footer {
+    padding: 25px;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #999;
+    direction: ltr;
+}
+
+/* SPIDERS */
+
+.spider {
+    position: fixed;
+    width: 75px;
+    height: 90px;
+    z-index: 90;
+    pointer-events: none;
+    transition: left 1.8s ease-in-out;
+    direction: ltr;
+}
+
+#spiderOne {
+    top: 42%;
+    left: 8%;
+}
+
+#spiderTwo {
+    top: 72%;
+    left: 65%;
+}
+
+.spider svg {
+    width: 75px;
+    height: 75px;
+    overflow: visible;
+    filter: drop-shadow(0 4px 3px rgba(0,0,0,.12));
+}
+
+/* LEGS */
+
+.leg {
+    stroke: #171717;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    fill: none;
+    transform-box: view-box;
+}
+
+.leg-a { animation: legA .42s ease-in-out infinite alternate; }
+.leg-b { animation: legB .42s ease-in-out infinite alternate; }
+.leg-c { animation: legC .42s ease-in-out infinite alternate; }
+.leg-d { animation: legD .42s ease-in-out infinite alternate; }
+
+.leg-b { animation-delay: -.15s; }
+.leg-c { animation-delay: -.25s; }
+.leg-d { animation-delay: -.08s; }
+
+@keyframes legA {
+    from { transform: rotate(-9deg); }
+    to { transform: rotate(12deg); }
+}
+
+@keyframes legB {
+    from { transform: rotate(12deg); }
+    to { transform: rotate(-10deg); }
+}
+
+@keyframes legC {
+    from { transform: rotate(-12deg); }
+    to { transform: rotate(9deg); }
+}
+
+@keyframes legD {
+    from { transform: rotate(10deg); }
+    to { transform: rotate(-12deg); }
+}
+
+/* BODY */
+
+.spider-body {
+    fill: #171717;
+}
+
+.spider-highlight {
+    fill: rgba(255,255,255,.2);
+}
+
+.spider-eye {
+    fill: white;
+}
+
+/* SPEECH BUBBLES */
+
+.bubble {
+    position: absolute;
+    bottom: 78px;
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    white-space: nowrap;
+    padding: 8px 13px;
+    border: 1px solid #222;
+    background: white;
+    color: #111;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 10px;
+    border-radius: 12px;
+    opacity: 0;
+    transition: .5s ease;
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+.bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-right: 1px solid #222;
+    border-bottom: 1px solid #222;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.bubble.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+    header {
+        padding: 20px 6%;
+    }
+
+    .logo {
+        letter-spacing: -5px;
+    }
+
+    .spider {
+        transform: scale(.82);
+    }
+
+    #spiderOne {
+        top: 35%;
+    }
+
+    #spiderTwo {
+        top: 68%;
+    }
+
+    .about {
+        padding: 100px 8%;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="date" id="date"></div>
+    <div class="username">ARSHIA AJANKAN</div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div>
+        <div class="logo">AR<span>s</span>X</div>
+        <div class="subtitle">COMING SOON</div>
+    </div>
+
+    <div class="scroll-indicator">
+        <div class="scroll-arrow"></div>
+        SCROLL DOWN
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <div class="section-label">01 — ABOUT</div>
+
+    <h2>Beyond the ordinary.</h2>
+
+    <p>
+        Welcome to ARSX.
+        A space for ideas, creativity and new experiences.
+        Something interesting is coming.
+    </p>
+
+</section>
+
+<!-- TELEGRAM -->
+
+<section class="telegram-section" id="telegram">
+
+    <svg class="telegram-lines" viewBox="0 0 600 180">
+        <path d="M0 160 Q150 20 300 90 T600 30"/>
+        <path d="M0 20 Q200 170 300 90 T600 160"/>
+        <path d="M0 90 Q150 90 300 90 T600 90"/>
+    </svg>
+
+    <div class="section-label">02 — CONNECT</div>
+
+    <h2>Let's connect.</h2>
+
+    <p>Follow us and stay connected.</p>
+
+    <a class="telegram-button"
+       href="https://t.me/Ars_teamX"
+       target="_blank"
+       rel="noopener">
+
+        <svg viewBox="0 0 24 24">
+            <path d="M9.78 15.54 9.4 20.9c.54 0 .77-.23 1.05-.5l2.52-2.4 5.22 3.82c.96.53 1.64.25 1.9-.9l3.44-16.1c.35-1.5-.54-2.1-1.45-1.73L1.1 10.15c-1.44.56-1.42 1.36-.25 1.72l5.38 1.68L18.72 6.1c.59-.36 1.13-.16.69.2"/>
+        </svg>
+
+        @Ars_teamX
+
+    </a>
+
+</section>
+
+<footer>
+    © ARSX — ALL RIGHTS RESERVED
+</footer>
+
+
+<!-- SPIDER ONE -->
+
+<div class="spider" id="spiderOne">
+
+    <div class="bubble">برو پایین ↓</div>
+
+    <svg viewBox="0 0 100 90">
+
+        <!-- LEFT LEGS -->
+
+        <g transform="translate(42 42)">
+            <path class="leg leg-a" d="M0 0 L-13 -9 L-25 -18 L-32 -13"/>
+            <path class="leg leg-b" d="M0 0 L-16 -3 L-30 -5 L-37 2"/>
+            <path class="leg leg-c" d="M0 0 L-16 7 L-29 13 L-34 21"/>
+            <path class="leg leg-d" d="M0 0 L-12 13 L-21 26 L-28 29"/>
+        </g>
+
+        <!-- RIGHT LEGS -->
+
+        <g transform="translate(58 42)">
+            <path class="leg leg-a" d="M0 0 L13 -9 L25 -18 L32 -13"/>
+            <path class="leg leg-b" d="M0 0 L16 -3 L30 -5 L37 2"/>
+            <path class="leg leg-c" d="M0 0 L16 7 L29 13 L34 21"/>
+            <path class="leg leg-d" d="M0 0 L12 13 L21 26 L28 29"/>
+        </g>
+
+        <!-- ABDOMEN -->
+
+        <ellipse class="spider-body" cx="69" cy="43" rx="17" ry="13"/>
+        <ellipse class="spider-highlight" cx="65" cy="39" rx="6" ry="3"/>
+
+        <!-- HEAD -->
+
+        <ellipse class="spider-body" cx="39" cy="43" rx="11" ry="10"/>
+
+        <!-- EYES -->
+
+        <circle class="spider-eye" cx="35" cy="39" r="1.8"/>
+        <circle class="spider-eye" cx="42" cy="39" r="1.8"/>
+
+    </svg>
+
+</div>
+
+
+<!-- SPIDER TWO -->
+
+<div class="spider" id="spiderTwo">
+
+    <div class="bubble">بیا تلگرام! ↗</div>
+
+    <svg viewBox="0 0 100 90">
+
+        <!-- LEFT LEGS -->
+
+        <g transform="translate(42 42)">
+            <path class="leg leg-c" d="M0 0 L-13 -9 L-25 -18 L-32 -13"/>
+            <path class="leg leg-d" d="M0 0 L-16 -3 L-30 -5 L-37 2"/>
+            <path class="leg leg-a" d="M0 0 L-16 7 L-29 13 L-34 21"/>
+            <path class="leg leg-b" d="M0 0 L-12 13 L-21 26 L-28 29"/>
+        </g>
+
+        <!-- RIGHT LEGS -->
+
+        <g transform="translate(58 42)">
+            <path class="leg leg-c" d="M0 0 L13 -9 L25 -18 L32 -13"/>
+            <path class="leg leg-d" d="M0 0 L16 -3 L30 -5 L37 2"/>
+            <path class="leg leg-a" d="M0 0 L16 7 L29 13 L34 21"/>
+            <path class="leg leg-b" d="M0 0 L12 13 L21 26 L28 29"/>
+        </g>
+
+        <!-- ABDOMEN -->
+
+        <ellipse class="spider-body" cx="69" cy="43" rx="17" ry="13"/>
+        <ellipse class="spider-highlight" cx="65" cy="39" rx="6" ry="3"/>
+
+        <!-- HEAD -->
+
+        <ellipse class="spider-body" cx="39" cy="43" rx="11" ry="10"/>
+
+        <!-- EYES -->
+
+        <circle class="spider-eye" cx="35" cy="39" r="1.8"/>
+        <circle class="spider-eye" cx="42" cy="39" r="1.8"/>
+
+    </svg>
+
+</div>
+
+
+<script>
+
+/* DATE */
+
+const dateElement = document.getElementById("date");
+
+function updateDate() {
+    const now = new Date();
+
+    dateElement.textContent = now.toLocaleDateString("en-US", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+    }).toUpperCase();
+}
+
+updateDate();
+
+
+/* SPIDER WALKING */
+
+const spiders = [
+    document.getElementById("spiderOne"),
+    document.getElementById("spiderTwo")
+];
+
+const spiderStates = [
+    { direction: 1, paused: false },
+    { direction: -1, paused: false }
+];
+
+function moveSpider(index) {
+
+    const spider = spiders[index];
+    const state = spiderStates[index];
+
+    if (state.paused) return;
+
+    const width = spider.offsetWidth;
+    const max = window.innerWidth - width - 10;
+
+    let current = parseFloat(getComputedStyle(spider).left);
+
+    if (!Number.isFinite(current)) current = 20;
+
+    let next = current + state.direction * (35 + Math.random() * 45);
+
+    if (next > max || next < 10) {
+        state.direction *= -1;
+        next = Math.max(10, Math.min(max, next));
+    }
+
+    spider.style.left = next + "px";
+    spider.style.transform = state.direction < 0
+        ? "scaleX(-1)"
+        : "scaleX(1)";
+
+    // توقف کوتاه و گاهی تغییر جهت
+    if (Math.random() < 0.25) {
+        state.paused = true;
+
+        setTimeout(() => {
+            state.paused = false;
+
+            if (Math.random() < 0.35) {
+                state.direction *= -1;
+            }
+        }, 1300 + Math.random() * 1800);
+    }
+}
+
+setInterval(() => {
+    moveSpider(0);
+}, 1800);
+
+setInterval(() => {
+    moveSpider(1);
+}, 2200);
+
+
+/* SPEECH BUBBLES */
+
+const messages = [
+    ["برو پایین ↓", "یه نگاه پایین بنداز!", "اسکرول کن!", "ادامه بده..."],
+    ["بیا تلگرام! ↗", "منتظر چی هستی؟", "ما اونجاییم!", "وارد تلگرام شو"]
+];
+
+function showBubble(index) {
+
+    const spider = spiders[index];
+    const bubble = spider.querySelector(".bubble");
+
+    let messageIndex = 0;
+
+    function changeMessage() {
+
+        bubble.classList.remove("show");
+
+        setTimeout(() => {
+
+            bubble.textContent =
+                messages[index][messageIndex];
+
+            bubble.classList.add("show");
+
+            messageIndex =
+                (messageIndex + 1) % messages[index].length;
+
+        }, 500);
+    }
+
+    changeMessage();
+
+    setInterval(changeMessage, 5500);
+}
+
+showBubble(0);
+
+setTimeout(() => {
+    showBubble(1);
+}, 2400);
+
+
+/* TELEGRAM SECTION DETECTION */
+
+const telegramSection =
+    document.getElementById("telegram");
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            spiders.forEach((spider, index) => {
+
+                const bubble = spider.querySelector(".bubble");
+
+                bubble.textContent =
+                    index === 0
+                    ? "پیداش کردی! ↓"
+                    : "بیا تلگرام! ↗";
+
+                bubble.classList.add("show");
+
+            });
+
+        }
+
+    });
+
+}, { threshold: 0.35 });
+
+observer.observe(telegramSection);
+
+
+/* RESPONSIVE POSITION */
+
+window.addEventListener("resize", () => {
+
+    spiders.forEach(spider => {
+
+        const max = window.innerWidth -
+                    spider.offsetWidth - 10;
+
+        let current = parseFloat(spider.style.left);
+
+        if (current > max) {
+            spider.style.left = max + "px";
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
